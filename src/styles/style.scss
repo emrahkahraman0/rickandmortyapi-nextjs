@@ -213,6 +213,192 @@ body {
   }
 }
 
+.page {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h6 {
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+//Characters#
+#characters {
+  width: 100%;
+  padding: 100px 0 50px 0;
+
+  //characters
+  .characters {
+    //&_item
+    &_item {
+      margin-bottom: 50px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      img {
+        width: 100%;
+      }
+      h6 {
+        padding-top: 20px;
+        a {
+          font-family: $one_family;
+          color: $primary_color;
+          text-transform: uppercase;
+          @include weight(600);
+          line-height: normal;
+          font-size: 22px;
+        }
+      }
+      p {
+        padding-top: 15px;
+        font-family: $two_family;
+        font-size: $large_size;
+        line-height: normal;
+        color: $three_color;
+      }
+      .read_more {
+        margin-top: 20px;
+        display: inline-block;
+        background-color: $two_color;
+        color: $base_color;
+        font-size: $regular_size;
+        padding: 10px 20px;
+      }
+
+      //Notebook
+      @include notebook {
+        h6 {
+          a {
+            font-size: 18px;
+          }
+        }
+      }
+      //Tablet
+      @include tablet {
+        h6 {
+          a {
+            font-size: $large_size;
+          }
+        }
+        p {
+          font-size: $regular_size;
+        }
+      }
+      //X-Tablet
+      @include x-tablet {
+        text-align: center;
+        h6 {
+          padding-top: 15px;
+        }
+
+        .read_more {
+          margin-top: 15px;
+          width: 100%;
+          padding: 8px 0;
+        }
+      }
+      //Mobil
+      @include mobil {
+        h6 {
+          a {
+            font-size: $regular_size;
+          }
+        }
+        p {
+          font-size: $small_size;
+        }
+        .read_more {
+          font-size: $small_size;
+        }
+      }
+    }
+  }
+}
+//Characters_Details#
+#characters_details {
+  width: 100%;
+  padding: 120px 0;
+
+  //characters_details
+  .characters_details {
+    //&_image
+    &_image {
+      img {
+        width: 100%;
+      }
+    }
+    //&_text
+    &_text {
+      h6 {
+        font-family: $one_family;
+        color: $primary_color;
+        text-transform: uppercase;
+        @include weight(600);
+        line-height: normal;
+        font-size: 22px;
+        padding-bottom: 25px;
+      }
+      p {
+        padding-top: 6px;
+        font-family: $two_family;
+        font-size: $large_size;
+        line-height: normal;
+        color: $three_color;
+      }
+    }
+
+    //Notebook
+    @include notebook {
+      //&_text
+      &_text {
+        h6 {
+          font-size: 18px;
+        }
+      }
+    }
+    //Tablet
+    @include tablet {
+      text-align: center;
+      //&_text
+      &_text {
+        padding-top: 25px;
+        h6 {
+          font-size: 18px;
+        }
+        p {
+          font-size: $regular_size;
+        }
+      }
+    }
+    //XTablet
+    @include x-tablet {
+      //&_text
+      &_text {
+        padding-top: 20px;
+        h6 {
+          font-size: $large_size;
+          padding-bottom: 20px;
+        }
+      }
+    }
+    //Mobil
+    @include mobil {
+      //&_text
+      &_text {
+        h6 {
+          font-size: $regular_size;
+        }
+        p {
+          font-size: $small_size;
+        }
+      }
+    }
+  }
+}
+
 //Footer#
 #footer {
   width: 100%;
@@ -238,7 +424,24 @@ body {
       text-align: center;
       //&_left
       &_left {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+      }
+    }
+    //Notebook
+    @include notebook {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      //&_left
+      &_left {
+        margin-bottom: 15px;
+      }
+    }
+    //Mobil
+    @include mobil {
+      //&_right
+      &_right {
+        font-size: $small_size;
       }
     }
   }

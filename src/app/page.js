@@ -1,9 +1,14 @@
-import React from "react";
+import Link from "next/link";
 
 function Home() {
   return (
     <>
-      <div>Home</div>
+      <div className="page">
+        <h6>
+          <Link href="/characters">Characters</Link> linkine tıklyarak
+          ulaşabilirsiniz :)
+        </h6>
+      </div>
     </>
   );
 }
