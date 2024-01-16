@@ -1,0 +1,109 @@
+//Variable.scss
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+$bg_color: #f7ecec;
+$base_color: #ffffff;
+$primary_color: #212121;
+$two_color: #3563e9;
+$three_color: #757575;
+$one_family: "Inter", sans-serif;
+$two_family: "Open Sans", sans-serif;
+$large_size: 16px;
+$regular_size: 14px;
+$small_size: 12px;
+
+//Media
+
+//X-Large
+@mixin x-large() {
+  @media only screen and (max-width: 1400px) {
+    @content;
+  }
+}
+//Large
+@mixin large() {
+  @media only screen and (max-width: 1200px) {
+    @content;
+  }
+}
+//Notebook
+@mixin notebook() {
+  @media only screen and (max-width: 992px) {
+    @content;
+  }
+}
+//Tablet
+@mixin tablet() {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+//X-Tablet
+@mixin x-tablet() {
+  @media only screen and (max-width: 575px) {
+    @content;
+  }
+}
+//Mobil
+@mixin mobil() {
+  @media only screen and (max-width: 480px) {
+    @content;
+  }
+}
+//Small
+@mixin small() {
+  @media only screen and (max-width: 350px) {
+    @content;
+  }
+}
+//X-Small
+@mixin x-small() {
+  @media only screen and (max-width: 250px) {
+    @content;
+  }
+}
+
+//Font-Weight
+@mixin weight($weight) {
+  $weights: (
+    thin: 100,
+    extra-light: 200,
+    ultra-light: 200,
+    light: 300,
+    normal: 400,
+    book: 400,
+    regular: 400,
+    medium: 500,
+    semi-bold: 600,
+    demi-bold: 600,
+    bold: 700,
+    extra-bold: 800,
+    ultra-bold: 900,
+    heavy: 900,
+    black: 900,
+    ultra: 900,
+    ultra-black: 900,
+    extra-ultra: 900,
+  );
+
+  $output: $weight;
+  @if map-has-key($weights, $weight) {
+    $output: map-get($weights, $weight);
+  }
+
+  font-weight: $output;
+}
+
+//Owl-Carousel
+.owl-carousel .owl-stage,
+.owl-carousel.owl-drag .owl-item {
+  -ms-touch-action: auto;
+  touch-action: auto;
+}
+
+//Align_İtems
+.align_items {
+  display: flex;
+  align-items: center;
+}

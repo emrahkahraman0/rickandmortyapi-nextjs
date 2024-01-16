@@ -1,0 +1,245 @@
+//Bu Sass Dosyası Emrah KAHRAMAN tarafından kodlanmıştır.
+
+//Variable
+@import "variables/_reset";
+@import "variables/_variable";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $base_color;
+  width: 100%;
+  overflow-x: hidden;
+  font-size: $large_size;
+  font-family: $one_family, $two_family;
+  color: $primary_color;
+  min-height: 100vh;
+}
+
+//Header#
+#header {
+  width: 100%;
+  background-color: $bg_color;
+
+  //header
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    position: relative;
+
+    //&_logo
+    &_logo {
+      position: relative;
+      z-index: 3;
+      img {
+        cursor: pointer;
+      }
+    }
+
+    //&_menu
+    &_menu {
+      > li {
+        display: inline-block;
+        position: relative;
+        margin-right: 25px;
+        &:last-child {
+          margin-right: 0;
+        }
+        > a {
+          font-family: $two_family;
+          color: $primary_color;
+          @include weight(medium);
+          font-size: $regular_size;
+          text-transform: uppercase;
+          position: relative;
+          &::before {
+            position: absolute;
+            width: 0;
+            margin: -4px 0;
+            transition: 0.4ms all ease-in-out;
+            content: "";
+            background-color: $two_color;
+            height: 4px;
+            border-radius: 2px;
+            left: 0;
+            bottom: 0;
+          }
+          &:hover {
+            color: $two_color;
+            &::before {
+              width: 100%;
+            }
+          }
+          &:not(:only-child):after {
+            padding-left: 0;
+            content: "▾";
+          }
+        }
+        .active {
+          position: relative;
+          &::before {
+            position: absolute;
+            width: 0;
+            margin: -5px 0;
+            transition: 0.4ms all ease-in-out;
+            content: "";
+            background-color: $two_color;
+            height: 4px;
+            border-radius: 2px;
+            left: 0;
+            bottom: 0;
+          }
+        }
+        .active,
+        a.active {
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    //&_hamburger
+    &_hamburger {
+      display: none;
+      position: absolute;
+      top: 27px;
+      right: 15px;
+      transition: 0.5s all ease-in-out;
+      cursor: pointer;
+      z-index: 999;
+      .icon {
+        font-size: 30px;
+        color: $two_color;
+      }
+    }
+
+    //Notebook
+    @include notebook {
+      //&_menu
+      &_menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: $base_color;
+        z-index: 2;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transform: scale(0);
+        opacity: 0;
+        transition: opacity 650ms;
+        li {
+          display: block;
+          margin-right: 0;
+          padding-bottom: 30px;
+          &:last-child {
+            padding-bottom: 0;
+          }
+          a {
+            font-size: $large_size;
+            font-weight: bold;
+            color: $primary_color;
+            &::before {
+              background-color: $two_color;
+            }
+          }
+          //dropdown
+          .dropdown {
+            width: 100%;
+            top: 30px;
+            padding: 15px 0;
+            li {
+              padding-bottom: 12px;
+              &:last-child {
+                padding-bottom: 0;
+              }
+              a {
+                font-size: 12px;
+                line-height: normal;
+              }
+            }
+          }
+        }
+      }
+      //dropdown
+      .dropdown.open {
+        opacity: 1;
+      }
+      &_menu.open {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      //&_hamburger
+      &_hamburger {
+        display: block;
+        .times {
+          display: none;
+        }
+      }
+      &_hamburger.open {
+        .bars {
+          display: none;
+        }
+        .times {
+          display: block;
+        }
+      }
+    }
+  }
+}
+#header.scroll {
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.35);
+  position: fixed;
+  transition: 0.3s all ease-in-out;
+  top: 0;
+  z-index: 2;
+  background-color: $bg_color;
+
+  //header
+  .header {
+    //&_hamburger
+    &_hamburger {
+      top: 27px;
+    }
+  }
+}
+
+//Footer#
+#footer {
+  width: 100%;
+  padding: 15px 0;
+  background-color: $bg_color;
+
+  //footer
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &_right {
+      font-family: $one_family;
+      font-size: $regular_size;
+      line-height: normal;
+    }
+
+    //Notebook
+    @include notebook {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      //&_left
+      &_left {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
